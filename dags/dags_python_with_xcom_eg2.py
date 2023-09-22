@@ -32,6 +32,7 @@ with DAG(
     # 해당 값을 status 변수로 활용 
     xcom_pull_2(python_xcom_push_by_return)
 
+    # 이렇게도 돌아갈 수 있음 
     python_xcom_push_by_return >> xcom_pull_1()
     
 
