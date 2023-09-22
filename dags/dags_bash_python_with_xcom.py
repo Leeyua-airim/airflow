@@ -17,10 +17,10 @@ with DAG(
     def python_push_xcom():
         # dict 타입의 데이터 
         # 초기 파라미터 셋팅 
-        # 이렇게 하면 자동으로 Xcom 에 올라감
+        # return 은 자동으로 Xcom 에 올라감
         result_dict = {'status' : 'Good', 
                        'data' : [1,2,3],
-                       'options_cnt' :100}
+                       'options_cnt' : 100}
         return result_dict
     
     bash_pull = BashOperator(
@@ -50,6 +50,7 @@ with DAG(
         status_value = ti.xcom_pull(key='bash_pushed') #
         print('starts_value : ' + str(status_value))
 
+        # 마지막에 들어온 echo 값이 할당
         return_value = ti.xcom_pull(task_ids='bash_push')
         print("return_value : " +str(return_value))
 
