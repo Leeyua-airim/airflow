@@ -14,6 +14,8 @@ with DAG(
     schedule   = None,
     catchup    = False
 ) as dag:
+    # 분기처리를 위한 데코레이터 
+    @task.branch(task_id = 'python_branch_task')
     def select_random():
         import random # 필요한 라이브러리는 이렇게 내부에 할당 
 
@@ -53,4 +55,4 @@ with DAG(
     )
 
     # 태스크 실행 -> 세 테스크 후보 중 하나가 실행되어야 하므로, 다음과 같이 리스트로 묶어줌 
-    python_branch_task >> [task_a, task_b, task_c]
+    select_random() >> [task_a, task_b, task_c]
