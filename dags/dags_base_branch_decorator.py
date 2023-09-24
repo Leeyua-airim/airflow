@@ -36,8 +36,8 @@ with DAG(
             
     custom_branch_operator = CustomBranchOperator(task_id='python_branch_task')
 
-def common_func(**kwargs):
-    print(kwargs['selected'])
+    def common_func(**kwargs):
+        print(kwargs['selected'])
 
     task_a = PythonOperator(
         task_id = 'task_a',
