@@ -21,7 +21,8 @@ with DAG(
         
         # choose_branch() 함수 명칭은 그대로 써야함 
         # context 도 그대로 써야함
-        # python 오퍼레이터 쓸 때 
+        # python 오퍼레이터 쓸 때 op_kwargs 에 들어갈 값들
+        # 값을 넣는 용도가 아니라 기본적인 값들이 context 에 들어가있음
         def choose_branch(self, context):
             import random
             
