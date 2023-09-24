@@ -7,9 +7,10 @@ from airflow.operators.bash import BashOperator
 from airflow.models import Variable
 from airflow.operators.python import BranchPythonOperator
 from airflow.operators.python import PythonOperator
+
 with DAG(
     dag_id='dags_branch_python_operator',
-    start_date = datetime(2023,9,1),
+    start_date = pendulum.datetime(2023, 9, 1, tz="Asia/Seoul"),
     schedule   = None,
     catchup    = False
 ) as dag:
