@@ -27,11 +27,11 @@ with DAG(
         elif selected_item in ['B','C']: #선택된 값이 'B', C 인 경우 
             return ['task_b', 'task_c']
 
-    # 분기를 처리하는 메서드 branchpythonoperator
-    python_branch_task = BranchPythonOperator(
-        task_id = 'python_branch_task',
-        python_callable = select_random # python_callable 을 통해 매개변수 전달
-    )
+    # # 분기를 처리하는 메서드 branchpythonoperator
+    # python_branch_task = BranchPythonOperator(
+    #     task_id = 'python_branch_task',
+    #     python_callable = select_random # python_callable 을 통해 매개변수 전달,
+    # )
 
     def common_func(**kwargs):
         print(kwargs['selected'])
